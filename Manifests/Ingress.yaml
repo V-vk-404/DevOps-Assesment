@@ -5,7 +5,7 @@ metadata:
   namespace: ruby-rails
 spec:
   rules:
-    - host: simplerailsapp.com
+    - host: 165.22.223.90.nip.io
       http:
         paths:
           - path: /
