@@ -5,8 +5,7 @@ metadata:
   namespace: ruby-rails
 spec:
   rules:
-    - host: dev-vksoni.cloud
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
