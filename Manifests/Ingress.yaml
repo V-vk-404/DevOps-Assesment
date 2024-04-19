@@ -1,14 +1,17 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: rails-app-ingress
   namespace: ruby-rails
-  name: rails-ing
 spec:
   rules:
-  - host: sample-rails.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: rails-app-service
-          servicePort: 3000
+    - host: ec2-3-144-211-32.us-east-2.compute.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rails-app
+                port:
+                  number: 3000
