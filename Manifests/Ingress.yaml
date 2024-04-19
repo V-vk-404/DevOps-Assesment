@@ -5,7 +5,7 @@ metadata:
   namespace: ruby-rails
 spec:
   rules:
-    - host: 
+    - host: 3.144.211.32:30080
       http:
         paths:
           - path: /
