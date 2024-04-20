@@ -6,22 +6,19 @@ spec:
   pipelineRef:
     name: build-and-push-pipeline
   serviceAccountName: default
+  params:
+    - name: context-dir
+      value: "."
+    - name: dockerfile
+      value: "./Dockerfile"
+    - name: docker-image
+      value: "https://hub.docker.com/r/jarvis99/railsapp:latest"
   resources:
     - name: git-source
       resourceSpec:
         type: git
         params:
           - name: url
-            value: "https://github.com/YashPimple/Ruby_on_rails.git"
-  params:
-    - name: gitrepo
-      value:
-        url: "https://github.com/YashPimple/Ruby_on_rails.git"
-    - name: context-dir
-      value: "."
-    - name: dockerfile
-      value: "./Dockerfile"
-    - name: docker-image
-      value: "https://hub.docker.com/r/yashpimple22/railsapp:latest"
+            value: "https://github.com/V-vk-404/DevOps-Assesment.git"
   secrets:
     - name: regcred
