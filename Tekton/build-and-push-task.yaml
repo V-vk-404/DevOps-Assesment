@@ -3,6 +3,13 @@ kind: Task
 metadata:
   name: build-and-push-task
 spec:
+  params:
+    - name: context-dir
+      type: string
+    - name: dockerfile
+      type: string
+    - name: docker-image
+      type: string
   steps:
     - name: build-and-push
       image: gcr.io/kaniko-project/executor:latest
@@ -15,7 +22,7 @@ spec:
       script: |
         #!/bin/sh
         echo "Building Docker image..."
-        /kaniko/executor --context $(params.context-dir) --dockerfile $(params.dockerfile) --destination $(params.docker-image)
+        /kaniko/executor --context $(inputs.params.context-dir) --dockerfile $(inputs.params.dockerfile) --destination $(inputs.params.docker-image)
   volumes:
     - name: docker-config
       secret:
